@@ -2,7 +2,7 @@
   "restaurants": [
     {
       "id": 0,
-      "categories": ["kebab"],
+      "categories": ["KEBAB"],
       "name": "McBurgers",
       "image": "/images/mcburgers/bgc.jpg",
       "deliveryTime": "10-20min",
@@ -14,27 +14,30 @@
           "name": "Wiesiek",
           "description": "Wołowina, sałata, ogórek",
           "cost": 19.99,
-          "category": "burgers"
+          "category": "Burgery",
+          "image": "/images/mcburgers/meals/burger1.jpg"
         },
         {
           "id": 1,
           "name": "MasterBurger",
           "description": "Podwójna wołowina, sałata, ogórek",
           "cost": 23.99,
-          "category": "burgers"
+          "category": "Burgery",
+          "image": "/images/mcburgers/meals/burger2.jpg"
         },
         {
           "id": 2,
           "name": "Frytki duże",
           "description": "Frytki 320g",
           "cost": 12.99,
-          "category": "chips"
+          "category": "Frytki",
+          "image": "/images/mcburgers/meals/chips.jpg"
         }
       ]
     },
     {
       "id": 1,
-      "categories": ["polish"],
+      "categories": ["POLISH"],
       "name": "Podpromie",
       "image": "/images/podpromie/bgc.jpg",
       "deliveryTime": "15-35min",
@@ -46,21 +49,21 @@
           "name": "Pierogi ruskie",
           "description": "Pierogi z farszem zmiemniaczanym",
           "cost": 22.99,
-          "category": "dumplings"
+          "category": "Pierogi"
         },
         {
           "id": 1,
           "name": "Pierogi z kapustą",
           "description": "Pierogi z farszem kapuścianym",
           "cost": 22.99,
-          "category": "dumplings"
+          "category": "Pierogi"
         },
         {
           "id": 2,
           "name": "Rosół",
           "description": "Rosół z kury",
           "cost": 14.99,
-          "category": "soup"
+          "category": "Zupy"
         }
       ]
     }

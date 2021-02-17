@@ -2,15 +2,13 @@ import styled from "styled-components";
 
 export const StyledNav = styled.nav`
   position: absolute;
-  z-index: 0;
+  z-index: 98;
   width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
-  background-color: ${({ isOpen }) =>
-    isOpen ? "rgba(0, 0, 0, 0.4)" : "transparent"};
-  transform: ${({ isOpen }) =>
-    isOpen ? "translateX(0)" : "translateX(-100%)"};
+  background-color: ${({ isOpen }) => (isOpen ? "rgba(0, 0, 0, 0.4)" : "transparent")};
+  transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(-100%)")};
   transition: ${({ isOpen }) =>
     isOpen
       ? "transform 0.2s ease-in-out, background-color 0.1s 0.2s ease-in-out"

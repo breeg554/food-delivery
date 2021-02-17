@@ -3,6 +3,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Switch, Route } from "react-router-dom";
 import { AppContext } from "./context/AppContext";
 import { theme } from "./utils/theme";
+import Preloader from "./components/Preloader";
 import HomePage from "./pages/Home";
 import Restaurant from "./pages/Restaurant";
 import ShoppingCart from "./pages/ShoppingCart";
@@ -17,23 +18,26 @@ const Global = createGlobalStyle`
   }
   body{
     font-family: 'Montserrat', sans-serif;
-    height: 200vh;
   }
 `;
 
 const App = () => {
-  const { loadDummyData } = useContext(AppContext);
+  const { loadDummyData, isLoading } = useContext(AppContext);
   useEffect(() => {
     loadDummyData();
   }, []);
   return (
     <ThemeProvider theme={theme}>
       <Global />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/cart" component={ShoppingCart} />
-        <Route exact path="/:name" component={Restaurant} />
-      </Switch>
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/cart" component={ShoppingCart} />
+          <Route exact path="/:name" component={Restaurant} />
+        </Switch>
+      )}
     </ThemeProvider>
   );
 };

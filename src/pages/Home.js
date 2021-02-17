@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Header from "../components/AppHeader";
 import Categories from "../components/Categories";
-
-const StyledMain = styled.main`
+import Restaurants from "../components/Restaurants";
+export const StyledMain = styled.main`
   padding: 0 4.5rem;
 `;
 
@@ -12,6 +12,7 @@ const Home = () => {
       <Header />
       <StyledMain>
         <Categories />
+        <Restaurants />
       </StyledMain>
     </>
   );

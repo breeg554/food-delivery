@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledHamburger = styled.button`
   position: relative;
-  z-index: 1;
+  z-index: 99;
   width: 25px;
   height: 15px;
   border: none;
