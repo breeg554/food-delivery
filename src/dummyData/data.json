@@ -15,7 +15,11 @@
           "description": "Wołowina, sałata, ogórek",
           "cost": 19.99,
           "category": "Burgery",
-          "image": "/images/mcburgers/meals/burger1.jpg"
+          "image": "/images/mcburgers/meals/burger1.jpg",
+
+          "count": 0,
+          "total": 0,
+          "restaurant": "McBurgers"
         },
         {
           "id": 1,
@@ -23,7 +27,11 @@
           "description": "Podwójna wołowina, sałata, ogórek",
           "cost": 23.99,
           "category": "Burgery",
-          "image": "/images/mcburgers/meals/burger2.jpg"
+          "image": "/images/mcburgers/meals/burger2.jpg",
+
+          "count": 0,
+          "total": 0,
+          "restaurant": "McBurgers"
         },
         {
           "id": 2,
@@ -31,7 +39,35 @@
           "description": "Frytki 320g",
           "cost": 12.99,
           "category": "Frytki",
-          "image": "/images/mcburgers/meals/chips.jpg"
+          "image": "/images/mcburgers/meals/chips.jpg",
+
+          "count": 0,
+          "total": 0,
+          "restaurant": "McBurgers"
+        },
+        {
+          "id": 3,
+          "name": "Średni Burger",
+          "description": "Podwójna wołowina, sałata",
+          "cost": 23.99,
+          "category": "Burgery",
+          "image": "/images/mcburgers/meals/burger3.jpg",
+
+          "count": 0,
+          "total": 0,
+          "restaurant": "McBurgers"
+        },
+        {
+          "id": 4,
+          "name": "Frytki małe",
+          "description": "Chipsy 200g",
+          "cost": 12.99,
+          "category": "Frytki",
+          "image": "/images/mcburgers/meals/chips2.jpg",
+
+          "count": 0,
+          "total": 0,
+          "restaurant": "McBurgers"
         }
       ]
     },

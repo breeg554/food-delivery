@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
+import { MealCategory } from "./style";
 import Meal from "./SingleMeal";
 const Meals = ({ data }) => {
-  console.log(data);
-
   const groupByCategory = () => {
     let out_data = {};
 
@@ -17,7 +16,7 @@ const Meals = ({ data }) => {
     return Object.keys(out_data).map((key) => {
       return (
         <div key={key}>
-          <h2>{key}</h2>
+          <MealCategory>{key}</MealCategory>
           {out_data[key].map((el) => (
             <Meal key={el.id} data={el} />
           ))}

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledDescription = styled.div`
   margin-top: 7rem;
   margin-bottom: 4rem;
+  color: ${({ theme }) => theme.colors.dark};
   p {
     display: inline-block;
     margin-right: 1.3rem;

@@ -1,14 +1,18 @@
 import PropTypes from "prop-types";
-import { ImageWrapper, StyledMeal } from "./style";
+import AddToCart from "../AddToCart";
+import { ImageWrapper, StyledMeal, ContentWrapper } from "./style";
 const Meal = ({ data }) => {
   return (
     <StyledMeal>
       <ImageWrapper>
         <img src={data.image} alt={data.name} />
       </ImageWrapper>
-      <div>
+      <ContentWrapper>
         <h3>{data.name}</h3>
-      </div>
+        <p>{data.description}</p>
+        <p>{data.cost}zł</p>
+      </ContentWrapper>
+      <AddToCart data={data} />
     </StyledMeal>
   );
 };

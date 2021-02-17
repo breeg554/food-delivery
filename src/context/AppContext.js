@@ -12,6 +12,7 @@ class AppContextProvider extends Component {
       restaurantCategory: "ALL",
       restaurantInputValue: "",
       isLoading: true,
+      shoppingCart: {},
     };
   }
   loadDummyData = () => {
@@ -20,9 +21,10 @@ class AppContextProvider extends Component {
         restaurants: restaurants,
         filteredRestaurants: restaurants,
       },
-      () => setTimeout(() => this.setState({ isLoading: false }), 1000) //mockup API
+      () => setTimeout(() => this.setState({ isLoading: false }), 1000) // API mockup
     );
   };
+
   handleGetRestaurant = (name) => {
     const { restaurants } = this.state;
     const index = restaurants.findIndex((res) => res.name.toLowerCase() === name.toLowerCase());
@@ -56,6 +58,36 @@ class AppContextProvider extends Component {
 
     this.setState({ filteredRestaurants: tmpRestaurants });
   };
+
+  pushToShoppingCart = (meal) => {
+    const { shoppingCart } = this.state;
+    const tmpShoppingCart = Object.assign({}, shoppingCart);
+
+    if (!tmpShoppingCart[meal.restaurant]) tmpShoppingCart[meal.restaurant] = [];
+    let index = tmpShoppingCart[meal.restaurant].findIndex((el) => el.id === meal.id);
+
+    if (index < 0) {
+      index = tmpShoppingCart[meal.restaurant].length;
+      tmpShoppingCart[meal.restaurant].push(meal);
+    }
+
+    tmpShoppingCart[meal.restaurant][index].count++;
+    tmpShoppingCart[meal.restaurant][index].total =
+      tmpShoppingCart[meal.restaurant][index].cost * tmpShoppingCart[meal.restaurant][index].count;
+    this.setState({ shoppingCart: tmpShoppingCart });
+  };
+
+  getNumberOfCartProduct = () => {
+    const { shoppingCart } = this.state;
+    let count = 0;
+    Object.keys(shoppingCart).forEach((res) => {
+      shoppingCart[res].forEach((meal) => {
+        count += meal.count;
+      });
+    });
+
+    return count;
+  };
   componentDidUpdate(prevProp, prevState) {
     const { restaurantCategory, restaurantInputValue } = this.state;
 
@@ -72,6 +104,8 @@ class AppContextProvider extends Component {
           handleChangeCategory: this.handleChangeCategory,
           handleChangeValue: this.handleChangeInputValue,
           handleGetRestaurant: this.handleGetRestaurant,
+          pushToShoppingCart: this.pushToShoppingCart,
+          getNumberOfCartProduct: this.getNumberOfCartProduct,
         }}
       >
         {this.props.children}
