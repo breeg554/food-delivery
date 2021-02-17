@@ -17,6 +17,7 @@ const Global = createGlobalStyle`
   }
   body{
     font-family: 'Montserrat', sans-serif;
+    height: 200vh;
   }
 `;
 

@@ -1,10 +1,19 @@
+import styled from "styled-components";
 import Header from "../components/AppHeader";
+import Categories from "../components/Categories";
+
+const StyledMain = styled.main`
+  padding: 0 4.5rem;
+`;
+
 const Home = () => {
   return (
-    <div>
+    <>
       <Header />
-      <h1>Home</h1>
-    </div>
+      <StyledMain>
+        <Categories />
+      </StyledMain>
+    </>
   );
 };
 

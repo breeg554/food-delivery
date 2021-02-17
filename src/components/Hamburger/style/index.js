@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const StyledHamburger = styled.button`
+  position: relative;
+  z-index: 1;
   width: 25px;
   height: 15px;
   border: none;
