@@ -9,7 +9,4 @@ export const Button = styled.button`
     font-size: 30px;
     color: ${({ theme }) => theme.colors.yellow};
   }
-  &:focus {
-    outline: none;
-  }
 `;

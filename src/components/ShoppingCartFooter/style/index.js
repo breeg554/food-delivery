@@ -21,11 +21,6 @@ export const SideWrapper = styled.div`
     font-size: 2rem;
     font-weight: 600;
   }
-  button {
-    &:focus {
-      outline: none;
-    }
-  }
   ${({ theme }) => theme.mediaQ.md} {
     p {
       font-size: 2.5rem;

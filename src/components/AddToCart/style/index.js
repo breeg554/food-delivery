@@ -10,10 +10,6 @@ export const StyledAddButton = styled.button`
   color: #fff;
   text-align: center;
   line-height: 20px;
-  cursor: pointer;
-  &:focus {
-    outline: none;
-  }
 
   ${({ theme }) => theme.mediaQ.xl} {
     width: 35px;

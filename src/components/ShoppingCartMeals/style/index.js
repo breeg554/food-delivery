@@ -9,7 +9,7 @@ export const RestaurantMealsWrapper = styled.div`
     display: inline-block;
     font-size: 2rem;
     margin-bottom: 1rem;
-    text-decoration: none;
+    text-decoration: underline;
     color: ${({ theme }) => theme.colors.dark};
   }
   ${({ theme }) => theme.mediaQ.xl} {
@@ -96,9 +96,7 @@ export const QuantityButton = styled.button`
 
   font-size: 1.3rem;
   border-radius: 5px;
-  &:focus {
-    outline: none;
-  }
+
   ${({ theme }) => theme.mediaQ.xl} {
     width: 25px;
     height: 25px;
@@ -112,9 +110,7 @@ export const RemoveButton = styled.button`
   border: none;
   background-color: transparent;
   font-size: 1.6rem;
-  &:focus {
-    outline: none;
-  }
+
   ${({ theme }) => theme.mediaQ.xl} {
     font-size: 2.2rem;
   }

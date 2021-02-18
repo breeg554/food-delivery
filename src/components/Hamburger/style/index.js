@@ -9,9 +9,6 @@ export const StyledHamburger = styled.button`
   background-color: transparent;
   position: relative;
 
-  &:focus {
-    outline: none;
-  }
   span {
     ${({ isOpen }) =>
       isOpen

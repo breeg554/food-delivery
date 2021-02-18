@@ -30,7 +30,7 @@ class AppContextProvider extends Component {
     this.setState({ restaurantCategory: "ALL", restaurantInputValue: "" });
   };
   handleClearShoppingCart = () => {
-    this.setState({ shoppingCart: {} });
+    this.setState({ shoppingCart: {}, totalCost: 0 });
   };
   handleGetRestaurant = (name) => {
     const { restaurants } = this.state;

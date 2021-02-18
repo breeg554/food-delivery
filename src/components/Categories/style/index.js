@@ -51,10 +51,6 @@ export const Category = styled.li`
     font-size: 14px;
     background-color: transparent;
     border: none;
-    cursor: pointer;
-    &:focus {
-      outline: none;
-    }
   }
   ${({ theme }) => theme.mediaQ.xl} {
     margin-right: 2.5rem;

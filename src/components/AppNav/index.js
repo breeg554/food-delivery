@@ -3,12 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { StyledNav, SideNav, Li } from "./style";
 import { FaShoppingBag } from "react-icons/fa";
-import {
-  IoMdSettings,
-  IoIosHeart,
-  IoIosHelpCircle,
-  IoMdCash,
-} from "react-icons/io";
+import { IoMdSettings, IoIosHeart, IoIosHelpCircle, IoMdCash } from "react-icons/io";
 
 const navElem = [
   { id: 0, path: "/", icon: <IoMdSettings />, text: "Ustawienia" },

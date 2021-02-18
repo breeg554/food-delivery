@@ -23,7 +23,4 @@ export const Input = styled.input`
   background-color: transparent;
   border: none;
   padding: 1rem;
-  &:focus {
-    outline: none;
-  }
 `;
