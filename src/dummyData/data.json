@@ -64,7 +64,6 @@
           "cost": 12.99,
           "category": "Frytki",
           "image": "/images/mcburgers/meals/chips2.jpg",
-
           "count": 0,
           "total": 0,
           "restaurant": "McBurgers"
@@ -85,21 +84,44 @@
           "name": "Pierogi ruskie",
           "description": "Pierogi z farszem zmiemniaczanym",
           "cost": 22.99,
-          "category": "Pierogi"
+          "category": "Pierogi",
+          "image": "/images/podpromie/meals/dumplings1.jpg",
+          "count": 0,
+          "total": 0,
+          "restaurant": "Podpromie"
         },
         {
           "id": 1,
           "name": "Pierogi z kapustą",
           "description": "Pierogi z farszem kapuścianym",
           "cost": 22.99,
-          "category": "Pierogi"
+          "category": "Pierogi",
+          "image": "/images/podpromie/meals/dumplings2.jpg",
+          "count": 0,
+          "total": 0,
+          "restaurant": "Podpromie"
         },
         {
           "id": 2,
+          "name": "Podsmażane",
+          "description": "Pierogi podsmażane",
+          "cost": 19.99,
+          "category": "Pierogi",
+          "image": "/images/podpromie/meals/dumplings3.jpg",
+          "count": 0,
+          "total": 0,
+          "restaurant": "Podpromie"
+        },
+        {
+          "id": 3,
           "name": "Rosół",
           "description": "Rosół z kury",
           "cost": 14.99,
-          "category": "Zupy"
+          "category": "Zupy",
+          "image": "/images/podpromie/meals/soup1.jpg",
+          "count": 0,
+          "total": 0,
+          "restaurant": "Podpromie"
         }
       ]
     }

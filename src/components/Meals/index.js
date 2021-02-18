@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { MealCategory } from "./style";
 import Meal from "./SingleMeal";
+
 const Meals = ({ data }) => {
   const groupByCategory = () => {
     let out_data = {};

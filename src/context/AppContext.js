@@ -1,4 +1,5 @@
 import React, { Component, createContext } from "react";
+import _ from "lodash";
 import { restaurants } from "../dummyData/data.json";
 
 const AppContext = createContext();
@@ -30,7 +31,7 @@ class AppContextProvider extends Component {
     const index = restaurants.findIndex((res) => res.name.toLowerCase() === name.toLowerCase());
 
     if (index < 0) return null;
-    return restaurants[index];
+    return _.cloneDeep(restaurants[index]);
   };
   handleChangeInputValue = (e) => {
     this.setState({
@@ -61,7 +62,7 @@ class AppContextProvider extends Component {
 
   pushToShoppingCart = (meal) => {
     const { shoppingCart } = this.state;
-    const tmpShoppingCart = Object.assign({}, shoppingCart);
+    const tmpShoppingCart = _.cloneDeep(shoppingCart);
 
     if (!tmpShoppingCart[meal.restaurant]) tmpShoppingCart[meal.restaurant] = [];
     let index = tmpShoppingCart[meal.restaurant].findIndex((el) => el.id === meal.id);
@@ -77,7 +78,27 @@ class AppContextProvider extends Component {
     this.setState({ shoppingCart: tmpShoppingCart });
   };
 
-  getNumberOfCartProduct = () => {
+  removeFromShoppingCart = (meal) => {
+    const { shoppingCart } = this.state;
+    const tmpShoppingCart = { ...shoppingCart };
+
+    const index = tmpShoppingCart[meal.restaurant].findIndex((el) => el.id === meal.id);
+    const tmpMeal = tmpShoppingCart[meal.restaurant][index];
+
+    if (meal.count === 1) {
+      tmpShoppingCart[meal.restaurant].splice(index, 1);
+      if (tmpShoppingCart[meal.restaurant].length <= 0) {
+        delete tmpShoppingCart[meal.restaurant];
+      }
+    } else {
+      tmpMeal.count--;
+      tmpMeal.total = tmpMeal.cost * tmpMeal.count;
+      tmpShoppingCart[meal.restaurant][index] = tmpMeal;
+    }
+
+    this.setState({ shoppingCart: tmpShoppingCart });
+  };
+  getNumberOfProductInCart = () => {
     const { shoppingCart } = this.state;
     let count = 0;
     Object.keys(shoppingCart).forEach((res) => {
@@ -105,7 +126,8 @@ class AppContextProvider extends Component {
           handleChangeValue: this.handleChangeInputValue,
           handleGetRestaurant: this.handleGetRestaurant,
           pushToShoppingCart: this.pushToShoppingCart,
-          getNumberOfCartProduct: this.getNumberOfCartProduct,
+          getNumberOfProductInCart: this.getNumberOfProductInCart,
+          removeFromShoppingCart: this.removeFromShoppingCart,
         }}
       >
         {this.props.children}

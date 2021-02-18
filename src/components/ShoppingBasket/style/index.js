@@ -1,6 +1,6 @@
 import styled from "styled-components";
-
-export const CartBtn = styled.button`
+import { Link } from "react-router-dom";
+export const CartBtn = styled(Link)`
   position: relative;
   width: 40px;
   height: 40px;

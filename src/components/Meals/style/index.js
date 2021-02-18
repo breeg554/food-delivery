@@ -16,8 +16,8 @@ export const StyledMeal = styled.article`
 `;
 export const ImageWrapper = styled.div`
   flex-shrink: 0;
-  width: 95px;
-  height: 75px;
+  width: ${({ width }) => (width ? `${width}px` : "95px")};
+  height: ${({ height }) => (height ? `${height}px` : "75px")};
   overflow: hidden;
   border-radius: 8px;
   margin-right: 1rem;
