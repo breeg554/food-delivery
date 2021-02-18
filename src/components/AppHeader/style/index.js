@@ -9,6 +9,8 @@ export const StyledHeader = styled.header`
 `;
 export const SideWrapper = styled.div`
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;

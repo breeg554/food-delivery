@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { GiCancel } from "react-icons/gi";
 import { AppContext } from "../../context/AppContext";
 import PropTypes from "prop-types";
-import { StyledMeal, ImageWrapper } from "../Meals/style";
-import { ContentWrapper, QuantityButton, QuantityWrapper, RemoveButton } from "./style";
+
+import { ContentWrapper, QuantityButton, QuantityWrapper, RemoveButton, StyledMeal, ImageWrapper } from "./style";
 
 const ChangeQuantity = ({ data }) => {
   const { removeFromShoppingCart, pushToShoppingCart } = useContext(AppContext);

@@ -4,14 +4,15 @@ import { Opinion, DeliveryCost } from "../Restaurants/style";
 const Description = ({ data }) => {
   return (
     <StyledDescription>
+      <h1>{data.name}</h1>
+      <Opinion>{data.opinion}</Opinion>
+
       <SideWrapper>
-        <h1>{data.name}</h1>
-        <Opinion>{data.opinion}</Opinion>
+        <p>{data.deliveryTime}</p>
+        <DeliveryCost free={data.deliveryCost === 0}>
+          {data.deliveryCost === 0 ? "Darmowa dostawa" : `Dostawa ${data.deliveryCost}zł`}
+        </DeliveryCost>
       </SideWrapper>
-      <p>{data.deliveryTime}</p>
-      <DeliveryCost free={data.deliveryCost === "free"}>
-        {data.deliveryCost === "free" ? "Darmowa dostawa" : `Dostawa ${data.deliveryCost}zł`}
-      </DeliveryCost>
     </StyledDescription>
   );
 };

@@ -14,6 +14,7 @@ class AppContextProvider extends Component {
       restaurantInputValue: "",
       isLoading: true,
       shoppingCart: {},
+      totalCost: 0,
     };
   }
   loadDummyData = () => {
@@ -25,13 +26,24 @@ class AppContextProvider extends Component {
       () => setTimeout(() => this.setState({ isLoading: false }), 1000) // API mockup
     );
   };
-
+  handleClearRestaurantFilter = () => {
+    this.setState({ restaurantCategory: "ALL", restaurantInputValue: "" });
+  };
   handleGetRestaurant = (name) => {
     const { restaurants } = this.state;
     const index = restaurants.findIndex((res) => res.name.toLowerCase() === name.toLowerCase());
 
     if (index < 0) return null;
     return _.cloneDeep(restaurants[index]);
+  };
+  handleGetDeliveryCost = () => {
+    const { shoppingCart, restaurants } = this.state;
+    let tmpCost = 0;
+    Object.keys(shoppingCart).forEach((res) => {
+      const index = restaurants.findIndex((el) => el.name === res);
+      tmpCost += restaurants[index].deliveryCost;
+    });
+    return tmpCost;
   };
   handleChangeInputValue = (e) => {
     this.setState({
@@ -59,6 +71,14 @@ class AppContextProvider extends Component {
 
     this.setState({ filteredRestaurants: tmpRestaurants });
   };
+  handleUpdateTotalCost = () => {
+    const { shoppingCart } = this.state;
+    let tmpCost = 0;
+    Object.keys(shoppingCart).forEach((res) => {
+      shoppingCart[res].forEach((el) => (tmpCost += el.total));
+    });
+    this.setState({ totalCost: tmpCost });
+  };
 
   pushToShoppingCart = (meal) => {
     const { shoppingCart } = this.state;
@@ -75,7 +95,7 @@ class AppContextProvider extends Component {
     tmpShoppingCart[meal.restaurant][index].count++;
     tmpShoppingCart[meal.restaurant][index].total =
       tmpShoppingCart[meal.restaurant][index].cost * tmpShoppingCart[meal.restaurant][index].count;
-    this.setState({ shoppingCart: tmpShoppingCart });
+    this.setState({ shoppingCart: tmpShoppingCart }, () => this.handleUpdateTotalCost());
   };
 
   removeFromShoppingCart = (meal) => {
@@ -96,7 +116,7 @@ class AppContextProvider extends Component {
       tmpShoppingCart[meal.restaurant][index] = tmpMeal;
     }
 
-    this.setState({ shoppingCart: tmpShoppingCart });
+    this.setState({ shoppingCart: tmpShoppingCart }, () => this.handleUpdateTotalCost());
   };
   getNumberOfProductInCart = () => {
     const { shoppingCart } = this.state;
@@ -108,6 +128,17 @@ class AppContextProvider extends Component {
     });
 
     return count;
+  };
+  checkIfInShoppingCart = (meal) => {
+    const { shoppingCart } = this.state;
+    let isIn = false;
+    Object.keys(shoppingCart).forEach((res) => {
+      if (meal.restaurant === res) {
+        const index = shoppingCart[res].findIndex((el) => el.id === meal.id);
+        if (index > -1) return (isIn = true);
+      }
+    });
+    return isIn;
   };
   componentDidUpdate(prevProp, prevState) {
     const { restaurantCategory, restaurantInputValue } = this.state;
@@ -126,8 +157,11 @@ class AppContextProvider extends Component {
           handleChangeValue: this.handleChangeInputValue,
           handleGetRestaurant: this.handleGetRestaurant,
           pushToShoppingCart: this.pushToShoppingCart,
-          getNumberOfProductInCart: this.getNumberOfProductInCart,
           removeFromShoppingCart: this.removeFromShoppingCart,
+          getNumberOfProductInCart: this.getNumberOfProductInCart,
+          handleGetDeliveryCost: this.handleGetDeliveryCost,
+          handleClearRestaurantFilter: this.handleClearRestaurantFilter,
+          checkIfInShoppingCart: this.checkIfInShoppingCart,
         }}
       >
         {this.props.children}

@@ -6,7 +6,7 @@
       "name": "McBurgers",
       "image": "/images/mcburgers/bgc.jpg",
       "deliveryTime": "10-20min",
-      "deliveryCost": "free",
+      "deliveryCost": 0,
       "opinion": 4.2,
       "foodList": [
         {
@@ -67,6 +67,28 @@
           "count": 0,
           "total": 0,
           "restaurant": "McBurgers"
+        },
+        {
+          "id": 5,
+          "name": "Quesadilla",
+          "description": "Placki tortilli podgrzane z serem i dodatkami",
+          "cost": 23.99,
+          "category": "Tortille",
+          "image": "/images/mcburgers/meals/tortilla1.jpg",
+          "count": 0,
+          "total": 0,
+          "restaurant": "McBurgers"
+        },
+        {
+          "id": 6,
+          "name": "Tortilla",
+          "description": "Tortilla z kurczakiem",
+          "cost": 19.99,
+          "category": "Tortille",
+          "image": "/images/mcburgers/meals/tortilla2.jpg",
+          "count": 0,
+          "total": 0,
+          "restaurant": "McBurgers"
         }
       ]
     },
@@ -76,7 +98,7 @@
       "name": "Podpromie",
       "image": "/images/podpromie/bgc.jpg",
       "deliveryTime": "15-35min",
-      "deliveryCost": "5",
+      "deliveryCost": 5,
       "opinion": 3.9,
       "foodList": [
         {
@@ -122,6 +144,83 @@
           "count": 0,
           "total": 0,
           "restaurant": "Podpromie"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "categories": ["ITALY", "PIZZA"],
+      "name": "Siciliana",
+      "image": "/images/siciliana/bgc.jpg",
+      "deliveryTime": "20-30min",
+      "deliveryCost": 11,
+      "opinion": 4.9,
+      "foodList": [
+        {
+          "id": 0,
+          "name": "Peperoni",
+          "description": "Mozarella, liście bazylii",
+          "cost": 29.99,
+          "category": "Pizza",
+          "image": "/images/siciliana/meals/pizza1.jpg",
+          "count": 0,
+          "total": 0,
+          "restaurant": "Siciliana"
+        },
+        {
+          "id": 1,
+          "name": "3 sery",
+          "description": "Mozarella, ser pleśniowy, cheddar",
+          "cost": 25.99,
+          "category": "Pizza",
+          "image": "/images/siciliana/meals/pizza2.jpg",
+          "count": 0,
+          "total": 0,
+          "restaurant": "Siciliana"
+        },
+        {
+          "id": 2,
+          "name": "Spaghetti ",
+          "description": "Spaghetti, szpinak, pomidorki koktailowe",
+          "cost": 29.99,
+          "category": "Makaron",
+          "image": "/images/siciliana/meals/pasta1.jpg",
+          "count": 0,
+          "total": 0,
+          "restaurant": "Siciliana"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "categories": ["SUSHI"],
+      "name": "Cobii",
+      "image": "/images/cobii/bgc.jpg",
+      "deliveryTime": "40-55min",
+      "deliveryCost": 0,
+      "opinion": 2.2,
+      "foodList": [
+        {
+          "id": 0,
+          "name": "Nigri",
+          "description": "Kawałki ryb, owoce morza",
+          "cost": 31.99,
+          "category": "Sushi",
+          "image": "/images/cobii/meals/sushi1.jpg",
+          "count": 0,
+          "total": 0,
+          "restaurant": "Cobii"
+        },
+        {
+          "id": 1,
+          "name": "Maki",
+          "description": "Bambusowa mata, ryż, kwałki ryb",
+          "cost": 37.0,
+          "category": "Sushi",
+          "image": "/images/cobii/meals/sushi2.jpg",
+          "count": 0,
+          "total": 0,
+          "restaurant": "Cobii"
         }
       ]
     }

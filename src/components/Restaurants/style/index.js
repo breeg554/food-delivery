@@ -2,21 +2,40 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 export const RestaurantsWrapper = styled.div`
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 2.5rem;
+  grid-column-gap: 1rem;
+  justify-items: center;
   & > p {
     font-size: 14px;
+  }
+  ${({ theme }) => theme.mediaQ.sm} {
+    grid-template-columns: 1fr 1fr;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  ${({ theme }) => theme.mediaQ.xl} {
+    max-width: 750px;
+  }
+  ${({ theme }) => theme.mediaQ.lg} {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1.5rem;
+    max-width: 1050px;
   }
 `;
 export const StyledRestaurant = styled.article`
   width: 100%;
   max-width: 290px;
   border: 0.5px solid rgba(0, 0, 0, 0.2);
-  margin-bottom: 2.5rem;
+
   overflow: hidden;
   border-radius: 5px;
   color: ${({ theme }) => theme.colors.dark};
   box-shadow: 1px 3px 10px -3px rgba(0, 0, 0, 0.3);
+  ${({ theme }) => theme.mediaQ.xl} {
+    max-width: 350px;
+  }
 `;
 export const ImgWrapper = styled(Link)`
   display: block;
@@ -26,6 +45,9 @@ export const ImgWrapper = styled(Link)`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  ${({ theme }) => theme.mediaQ.xl} {
+    height: 160px;
   }
 `;
 export const ContentWrapper = styled.div`
@@ -46,6 +68,14 @@ export const ContentWrapper = styled.div`
     margin-right: 1.3rem;
     font-size: 1.4rem;
     font-weight: 300;
+  }
+  ${({ theme }) => theme.mediaQ.xl} {
+    h2 {
+      font-size: 2.1rem;
+    }
+    & > p {
+      font-size: 1.6rem;
+    }
   }
 `;
 export const DeliveryCost = styled.p`
@@ -70,4 +100,8 @@ export const Opinion = styled.div`
   color: #fff;
   padding: 0.3rem;
   text-align: center;
+  ${({ theme }) => theme.mediaQ.xl} {
+    width: 35px;
+    font-size: 1.4rem;
+  }
 `;

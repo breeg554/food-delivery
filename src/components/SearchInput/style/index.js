@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const InputWrapper = styled.div`
   width: 100%;
+
   display: flex;
   align-items: center;
   background-color: rgba(33, 33, 33, 0.08);
@@ -11,6 +12,10 @@ export const InputWrapper = styled.div`
   svg {
     font-size: 2rem;
     color: rgba(0, 0, 0, 0.5);
+  }
+  ${({ theme }) => theme.mediaQ.md} {
+    margin: 0;
+    max-width: 280px;
   }
 `;
 export const Input = styled.input`

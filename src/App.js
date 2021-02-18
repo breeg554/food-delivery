@@ -1,6 +1,8 @@
 import { useEffect, useContext } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Switch, Route } from "react-router-dom";
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
 import { AppContext } from "./context/AppContext";
 import { theme } from "./utils/theme";
 import Preloader from "./components/Preloader";
@@ -16,8 +18,13 @@ const Global = createGlobalStyle`
   html{
     font-size: 10px; // 1rem = 10px 
   }
-  body{
+  body,button{
     font-family: 'Montserrat', sans-serif;
+  }
+  ${({ theme }) => theme.mediaQ.xl} {
+    button{
+      cursor: pointer;
+    }
   }
 `;
 
@@ -28,6 +35,7 @@ const App = () => {
   }, []);
   return (
     <ThemeProvider theme={theme}>
+      <ReactNotification />
       <Global />
       {isLoading ? (
         <Preloader />

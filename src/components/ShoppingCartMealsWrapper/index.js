@@ -1,15 +1,19 @@
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
-import { Wrapper } from "./style";
+import { Wrapper, ClearCart } from "./style";
 import ShoppingCartMeal from "../ShoppingCartMeals";
 const MealsWrapper = () => {
   const { shoppingCart } = useContext(AppContext);
 
   return (
     <Wrapper>
-      {Object.keys(shoppingCart).map((res) => {
-        return <ShoppingCartMeal key={res} data={shoppingCart[res]} />;
-      })}
+      {Object.entries(shoppingCart).length === 0 ? (
+        <ClearCart>Koszyk jest pusty!</ClearCart>
+      ) : (
+        Object.keys(shoppingCart).map((res) => {
+          return <ShoppingCartMeal key={res} data={shoppingCart[res]} />;
+        })
+      )}
     </Wrapper>
   );
 };

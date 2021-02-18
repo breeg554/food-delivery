@@ -1,11 +1,5 @@
 import PropTypes from "prop-types";
-import {
-  StyledRestaurant,
-  ImgWrapper,
-  ContentWrapper,
-  Opinion,
-  DeliveryCost,
-} from "./style";
+import { StyledRestaurant, ImgWrapper, ContentWrapper, Opinion, DeliveryCost } from "./style";
 
 const Restaurant = ({ data }) => {
   return (
@@ -19,10 +13,8 @@ const Restaurant = ({ data }) => {
           <Opinion>{data.opinion}</Opinion>
         </div>
         <p>{data.deliveryTime}</p>
-        <DeliveryCost free={data.deliveryCost === "free"}>
-          {data.deliveryCost === "free"
-            ? "Darmowa dostawa"
-            : `Dostawa ${data.deliveryCost}zł`}
+        <DeliveryCost free={data.deliveryCost === 0}>
+          {data.deliveryCost === 0 ? "Darmowa dostawa" : `Dostawa ${data.deliveryCost}zł`}
         </DeliveryCost>
       </ContentWrapper>
     </StyledRestaurant>

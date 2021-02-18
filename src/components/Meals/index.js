@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { MealCategory } from "./style";
+import { MealCategory, MealWrapper } from "./style";
 import Meal from "./SingleMeal";
 
 const Meals = ({ data }) => {
@@ -18,9 +18,11 @@ const Meals = ({ data }) => {
       return (
         <div key={key}>
           <MealCategory>{key}</MealCategory>
-          {out_data[key].map((el) => (
-            <Meal key={el.id} data={el} />
-          ))}
+          <MealWrapper>
+            {out_data[key].map((el) => (
+              <Meal key={el.id} data={el} />
+            ))}
+          </MealWrapper>
         </div>
       );
     });
