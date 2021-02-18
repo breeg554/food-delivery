@@ -1,9 +1,20 @@
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { useEffect, useRef } from "react";
+import lottie from "lottie-web";
 import { StyledPreloader } from "./style";
 const Preloader = () => {
+  const container = useRef();
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: container.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: require("../../utils/loading-animation.json"),
+    });
+  }, []);
   return (
     <StyledPreloader>
-      <AiOutlineLoading3Quarters />
+      <div ref={container} />
     </StyledPreloader>
   );
 };

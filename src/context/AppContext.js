@@ -23,11 +23,14 @@ class AppContextProvider extends Component {
         restaurants: restaurants,
         filteredRestaurants: restaurants,
       },
-      () => setTimeout(() => this.setState({ isLoading: false }), 1000) // API mockup
+      () => setTimeout(() => this.setState({ isLoading: false }), 2000) // API mockup
     );
   };
   handleClearRestaurantFilter = () => {
     this.setState({ restaurantCategory: "ALL", restaurantInputValue: "" });
+  };
+  handleClearShoppingCart = () => {
+    this.setState({ shoppingCart: {} });
   };
   handleGetRestaurant = (name) => {
     const { restaurants } = this.state;
@@ -162,6 +165,7 @@ class AppContextProvider extends Component {
           handleGetDeliveryCost: this.handleGetDeliveryCost,
           handleClearRestaurantFilter: this.handleClearRestaurantFilter,
           checkIfInShoppingCart: this.checkIfInShoppingCart,
+          handleClearShoppingCart: this.handleClearShoppingCart,
         }}
       >
         {this.props.children}

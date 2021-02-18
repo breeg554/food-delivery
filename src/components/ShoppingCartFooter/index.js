@@ -1,11 +1,14 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
+import _ from "lodash";
 import { HiOutlineShare } from "react-icons/hi";
 import { AppContext } from "../../context/AppContext";
 import { Footer, SideWrapper, BuyButton, ShareCart } from "./style";
 import ShortInfoOnHover from "../HoverInfo";
 const CartFooter = () => {
-  const { totalCost, handleGetDeliveryCost } = useContext(AppContext);
+  const { totalCost, handleGetDeliveryCost, handleClearShoppingCart, shoppingCart } = useContext(AppContext);
   const increasedByDelivery = Number.parseFloat(totalCost + handleGetDeliveryCost()).toFixed(2);
+
   return (
     <Footer>
       <SideWrapper>
@@ -18,7 +21,16 @@ const CartFooter = () => {
           <HiOutlineShare />
           Udostępnij koszyk
         </ShareCart>
-        <BuyButton>Zamów</BuyButton>
+        <Link
+          to={{
+            pathname: "/preparation",
+            state: { fromShoppingCart: true },
+          }}
+        >
+          <BuyButton onClick={handleClearShoppingCart} disabled={_.isEmpty(shoppingCart)} isDisabled={_.isEmpty(shoppingCart)}>
+            Zamów
+          </BuyButton>
+        </Link>
       </SideWrapper>
     </Footer>
   );

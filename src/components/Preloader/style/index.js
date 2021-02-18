@@ -1,14 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-const rotate = keyframes`
-    0%{
-        transform: rotate(0);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
-`;
-
 export const StyledPreloader = styled.div`
   position: fixed;
   z-index: 1000;
@@ -17,13 +8,11 @@ export const StyledPreloader = styled.div`
   left: 0;
   right: 0;
   background-color: #fff;
-  svg {
+  div {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 25px;
-    color: ${({ theme }) => theme.colors.blue};
-    animation: 0.3s ${rotate} infinite ease-in-out;
+    max-width: 200px;
   }
 `;

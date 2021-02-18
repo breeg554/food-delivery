@@ -3,12 +3,14 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Switch, Route } from "react-router-dom";
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
+import PrivateRoute from "./PrivateRoute";
 import { AppContext } from "./context/AppContext";
 import { theme } from "./utils/theme";
 import Preloader from "./components/Preloader";
 import HomePage from "./pages/Home";
 import Restaurant from "./pages/Restaurant";
 import ShoppingCart from "./pages/ShoppingCart";
+import DuringPreparation from "./pages/DuringPreparation";
 const Global = createGlobalStyle`
   *{
     margin: 0;
@@ -43,6 +45,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/cart" component={ShoppingCart} />
+          <PrivateRoute path="/preparation" exact component={DuringPreparation} />
           <Route exact path="/:name" component={Restaurant} />
         </Switch>
       )}

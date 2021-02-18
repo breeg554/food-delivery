@@ -45,11 +45,14 @@ export const BuyButton = styled.button`
   border-radius: 15px;
   font-size: 1.6rem;
   font-weight: 600;
+  &:disabled {
+    background-color: gray;
+  }
   ${({ theme }) => theme.mediaQ.xl} {
     font-size: 2rem;
     padding: 1rem 2rem;
     &:hover {
-      background-color: #eca716;
+      ${({ isDisabled }) => (isDisabled ? null : "background-color: #eca716")};
     }
   }
 `;
