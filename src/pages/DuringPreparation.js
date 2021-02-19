@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   text-align: center;
   color: ${({ theme }) => theme.colors.dark};
   a {
@@ -26,7 +27,7 @@ const Wrapper = styled.div`
 const Animation = styled.div`
   width: 100%;
   max-width: 400px;
-  max-height: 50%;
+  height: 300px;
 `;
 const Preparation = () => {
   const container = useRef(null);
@@ -45,13 +46,13 @@ const Preparation = () => {
       renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: require("../utils/preparation-animation.json"),
+      animationData: require("../utils/delivery-animation.json"),
     });
   }, []);
   return (
     <Wrapper>
       <Animation ref={container} />
-      <h1>W trakcie przygotowywania!</h1>
+      <h1>Kurier jest w drodze!</h1>
       <Link to="/">Strona główna</Link>
     </Wrapper>
   );
