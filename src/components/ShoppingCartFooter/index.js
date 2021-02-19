@@ -27,7 +27,12 @@ const CartFooter = () => {
             state: { fromShoppingCart: true },
           }}
         >
-          <BuyButton onClick={handleClearShoppingCart} disabled={_.isEmpty(shoppingCart)} isDisabled={_.isEmpty(shoppingCart)}>
+          <BuyButton
+            onClick={handleClearShoppingCart}
+            disabled={_.isEmpty(shoppingCart)}
+            isDisabled={_.isEmpty(shoppingCart)}
+            aria-label="Zamów"
+          >
             Zamów
           </BuyButton>
         </Link>

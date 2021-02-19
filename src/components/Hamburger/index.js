@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { StyledHamburger, Bar } from "./style";
 const Hamburger = ({ toggleMenu, isMenuOpen }) => {
   return (
-    <StyledHamburger onClick={toggleMenu} isOpen={isMenuOpen}>
+    <StyledHamburger onClick={toggleMenu} isOpen={isMenuOpen} aria-label="Otwórz menu">
       <Bar />
       <Bar />
       <Bar />

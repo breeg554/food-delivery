@@ -22,7 +22,7 @@ const AddToCart = ({ data }) => {
     });
   };
   return (
-    <StyledAddButton onClick={handleAddToCart} disabled={isInCart} inCart={isInCart}>
+    <StyledAddButton onClick={handleAddToCart} disabled={isInCart} inCart={isInCart} aria-label="Dodaj posiłek do karty">
       {isInCart ? <FiCheck /> : <FiPlus />}
     </StyledAddButton>
   );

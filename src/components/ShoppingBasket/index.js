@@ -5,7 +5,7 @@ import { CartBtn, Counter } from "./style";
 const ShoppingCart = () => {
   const { getNumberOfProductInCart } = useContext(AppContext);
   return (
-    <CartBtn to="/cart">
+    <CartBtn to="/cart" aria-label="Otwórz koszyk">
       <FaShoppingBasket />
       <Counter>{getNumberOfProductInCart()}</Counter>
     </CartBtn>

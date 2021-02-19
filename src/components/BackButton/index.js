@@ -4,7 +4,7 @@ import { Button } from "./style";
 const BackBtn = () => {
   const history = useHistory();
   return (
-    <Button onClick={() => history.goBack()}>
+    <Button onClick={() => history.goBack()} aria-label="Powrót">
       <IoChevronBackOutline />
     </Button>
   );
